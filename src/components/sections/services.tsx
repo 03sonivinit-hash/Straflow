@@ -59,7 +59,7 @@ export function Services() {
           </div>
           <Link 
             href="/services" 
-            className="group flex items-center gap-2 text-[11px] font-mono font-bold text-foreground hover:text-primary transition-colors pb-2 border-b border-border hover:border-primary"
+            className="group flex items-center gap-2 text-[11px] font-mono font-bold text-foreground hover:text-primary transition-colors py-2 md:py-0 md:pb-2 border-b border-transparent md:border-border hover:border-primary min-h-[44px] md:min-h-0"
           >
             VIEW ALL MODULES <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
@@ -73,7 +73,7 @@ export function Services() {
               <Link
                 href={`/services/${service.slug}`}
                 key={service.id}
-                className="group relative flex flex-col h-full bg-surface/30 border border-border/50 rounded-[var(--sf-radius-lg)] p-8 overflow-hidden hover:bg-surface/50 hover:border-border transition-all duration-300"
+                className="group relative flex flex-col h-full bg-surface/30 border border-border/50 rounded-[var(--sf-radius-lg)] p-6 md:p-8 overflow-hidden hover:bg-surface/50 hover:border-border transition-all duration-300"
               >
                 {/* Premium Hover Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

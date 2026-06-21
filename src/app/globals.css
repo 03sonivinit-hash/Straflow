@@ -8,22 +8,27 @@
 
 /* LIGHT THEME */
 :root {
-  --color-background: #FAFAFA;
-  --color-surface: #FFFFFF;
-  --color-surface-hover: #F4F4F5;
+  --color-background: #F4EFE4;
+  --color-surface: #ECE4D5;
+  --color-card: #FFFFFF;
+  --color-surface-hover: #E1D7C6;
   --color-primary: #FF4D2E; 
   --color-primary-hover: #E0351B;
   --color-primary-light: rgba(255, 77, 46, 0.08);
   
-  --color-foreground: #09090B;
-  --color-text-secondary: #52525B;
-  --color-muted: #A1A1AA;
+  --color-foreground: #111111;
+  --color-text-secondary: #555555;
+  --color-muted: #888888;
   
-  --color-border: #E4E4E7;
-  --color-border-light: rgba(9, 9, 11, 0.05);
+  --color-border: #D6CCBC;
+  --color-border-light: rgba(214, 204, 188, 0.4);
 
-  --sf-glass: rgba(255, 255, 255, 0.6);
-  --sf-glass-border: rgba(9, 9, 11, 0.05);
+  --color-success: #0F9D58;
+  --color-warning: #F4B400;
+  --color-error: #DB4437;
+
+  --sf-glass: rgba(236, 228, 213, 0.6);
+  --sf-glass-border: rgba(214, 204, 188, 0.4);
   
   --sf-radius-sm: 6px;
   --sf-radius-md: 12px;
@@ -34,17 +39,22 @@
 .dark, [data-theme="dark"] {
   --color-background: #050505;
   --color-surface: #0A0A0A;
+  --color-card: #0A0A0A;
   --color-surface-hover: #121212;
   --color-primary: #FF4D2E; 
   --color-primary-hover: #FF6B52;
   --color-primary-light: rgba(255, 77, 46, 0.15);
   
   --color-foreground: #F4F4F5;
-  --color-text-secondary: #A1A1AA;
-  --color-muted: #52525B;
+  --color-text-secondary: #B3B3B3;
+  --color-muted: #B3B3B3;
   
   --color-border: #27272A;
   --color-border-light: rgba(255, 255, 255, 0.05);
+
+  --color-success: #0F9D58;
+  --color-warning: #F4B400;
+  --color-error: #DB4437;
 
   --sf-glass: rgba(10, 10, 10, 0.5);
   --sf-glass-border: rgba(255, 255, 255, 0.05);
@@ -57,6 +67,7 @@
   /* EXPLICITLY DEFINE COLORS FOR TAILWIND V4 UTILITIES */
   --color-background: var(--color-background);
   --color-surface: var(--color-surface);
+  --color-card: var(--color-card);
   --color-surface-hover: var(--color-surface-hover);
   --color-primary: var(--color-primary);
   --color-primary-hover: var(--color-primary-hover);
@@ -66,6 +77,9 @@
   --color-muted: var(--color-muted);
   --color-border: var(--color-border);
   --color-border-light: var(--color-border-light);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-error: var(--color-error);
   
   --animate-fade-in: fade-in 0.6s cubic-bezier(0.0, 0.0, 0.2, 1) forwards;
   --animate-fade-up: fade-up 0.6s cubic-bezier(0.0, 0.0, 0.2, 1) forwards;
@@ -88,16 +102,27 @@ html, body {
 @layer base {
   h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
-    line-height: 1.05;
+    line-height: 1.15;
     letter-spacing: -0.03em;
     color: var(--color-foreground);
+  }
+
+  @media (min-width: 768px) {
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.05;
+    }
   }
 
   h1 { font-size: clamp(3rem, 6vw, 5rem); font-weight: 800; letter-spacing: -0.04em; margin-bottom: 24px; }
   h2 { font-size: clamp(2.25rem, 4vw, 3.5rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 24px; }
   h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 600; letter-spacing: -0.02em; margin-bottom: 20px; }
   h4 { font-size: clamp(1.125rem, 2vw, 1.5rem); font-weight: 600; margin-bottom: 16px; }
-  p { font-size: 1.0625rem; line-height: 1.8; color: var(--color-text-secondary); margin-bottom: 24px; }
+  
+  p { font-size: 1.0625rem; line-height: 1.7; color: var(--color-text-secondary); margin-bottom: 24px; }
+  
+  @media (min-width: 768px) {
+    p { line-height: 1.8; }
+  }
 }
 
 /* Selection & Scrollbar */
@@ -112,7 +137,7 @@ html, body {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 20px;
 }
 @media (min-width: 768px) { .sf-container { padding: 0 48px; } }
 @media (min-width: 1024px) { .sf-container { padding: 0 80px; } }

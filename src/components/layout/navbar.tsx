@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import { Logo } from "@/components/ui/logo";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const navLinks = [
   { href: "/#systems", label: "Systems" },
@@ -71,6 +72,8 @@ export function Navbar() {
 
             {/* Actions */}
             <div className="flex items-center gap-4 relative z-10">
+              <ThemeToggle />
+              
               <div className="hidden md:block">
                 <MagneticButton
                   href="/contact"
@@ -84,7 +87,7 @@ export function Navbar() {
               {/* Mobile Toggle */}
               <button
                 onClick={() => setIsMobileOpen(!isMobileOpen)}
-                className="md:hidden p-2 text-foreground focus:outline-none"
+                className="md:hidden p-3 -mr-1 text-foreground focus:outline-none"
               >
                 {isMobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -97,9 +100,9 @@ export function Navbar() {
       {/* Mobile Menu */}
       {isMobileOpen && (
         <div className="fixed inset-0 z-[199] sf-glass pt-24 px-6 md:hidden flex flex-col h-[100dvh]">
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-2">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="text-2xl font-bold text-foreground hover:text-primary transition-colors">
+              <Link key={link.href} href={link.href} className="block py-4 text-2xl font-bold text-foreground hover:text-primary transition-colors">
                 {link.label}
               </Link>
             ))}

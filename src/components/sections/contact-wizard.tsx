@@ -140,7 +140,7 @@ export function ContactWizard() {
     <div className="flex flex-col lg:flex-row min-h-[85vh] border-y border-border/50 bg-background overflow-hidden">
       
       {/* Left Panel - Branding & Steps */}
-      <div className="lg:w-1/3 bg-surface border-r border-border/50 p-8 md:p-12 xl:p-16 flex flex-col justify-between relative overflow-hidden">
+      <div className="lg:w-1/3 bg-surface border-r border-border/50 p-6 md:p-12 xl:p-16 flex flex-col justify-between relative overflow-hidden">
         {/* Subtle background glow */}
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
         
@@ -161,7 +161,7 @@ export function ContactWizard() {
                 <div key={s.id} className="flex items-center gap-5">
                   <div className={cn(
                     "w-10 h-10 rounded-xl flex items-center justify-center border transition-all duration-500",
-                    isActive ? "bg-primary border-primary text-white shadow-[var(--sf-shadow-sm)] scale-110" : 
+                    isActive ? "bg-primary border-primary text-[#111111] dark:text-white shadow-[var(--sf-shadow-sm)] scale-110" : 
                     isComplete ? "bg-foreground border-foreground text-background" : 
                     "bg-surface sf-glass border-border/50 text-muted"
                   )}>
@@ -186,7 +186,7 @@ export function ContactWizard() {
       </div>
 
       {/* Right Panel - Form Area */}
-      <div className="lg:w-2/3 p-8 md:p-12 xl:p-20 flex flex-col justify-center relative">
+      <div className="lg:w-2/3 p-6 md:p-12 xl:p-20 flex flex-col justify-center relative">
         {/* Progress Bar (Mobile mostly, but good for context) */}
         <div className="absolute top-0 left-0 right-0 h-1 bg-border/30">
           <motion.div 
@@ -269,7 +269,7 @@ export function ContactWizard() {
                             isSelected ? "border-primary bg-primary/10 text-foreground shadow-md ring-1 ring-primary/20" : "border-border/60 hover:border-border text-text-secondary hover:text-foreground sf-glass hover:bg-surface"
                           )}
                         >
-                          <div className={cn("w-5 h-5 rounded border flex items-center justify-center flex-shrink-0 transition-colors", isSelected ? "bg-primary border-primary text-white" : "border-border/80 bg-background")}>
+                          <div className={cn("w-5 h-5 rounded border flex items-center justify-center flex-shrink-0 transition-colors", isSelected ? "bg-primary border-primary text-[#111111] dark:text-white" : "border-border/80 bg-background")}>
                             {isSelected && <Check className="w-3 h-3" />}
                           </div>
                           {sys}
@@ -330,22 +330,22 @@ export function ContactWizard() {
                   <h2 className="text-3xl md:text-4xl mb-10">Where should we send the architecture blueprint?</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="md:col-span-2">
-                      <label className="block text-xs font-mono uppercase text-muted mb-3">Full Name *</label>
-                      <input {...register("fullName")} className="w-full px-5 py-4 rounded-xl border border-border/80 sf-glass text-foreground focus:border-primary focus:bg-background focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all text-lg" placeholder="John Smith" />
-                      {errors.fullName && <p className="text-xs text-primary mt-2">{errors.fullName.message}</p>}
+                      <label className="block text-xs font-mono uppercase text-muted mb-3 font-bold">Full Name *</label>
+                      <input {...register("fullName")} className="w-full min-h-[56px] px-5 py-4 rounded-xl border border-border/80 sf-glass text-foreground focus:border-primary focus:bg-background focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all text-[16px] md:text-lg" placeholder="John Smith" />
+                      {errors.fullName && <p className="text-sm font-medium text-primary mt-2">{errors.fullName.message}</p>}
                     </div>
                     <div>
-                      <label className="block text-xs font-mono uppercase text-muted mb-3">Email *</label>
-                      <input {...register("email")} type="email" className="w-full px-5 py-4 rounded-xl border border-border/80 sf-glass text-foreground focus:border-primary focus:bg-background focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all text-lg" placeholder="john@company.com" />
-                      {errors.email && <p className="text-xs text-primary mt-2">{errors.email.message}</p>}
+                      <label className="block text-xs font-mono uppercase text-muted mb-3 font-bold">Email *</label>
+                      <input {...register("email")} type="email" className="w-full min-h-[56px] px-5 py-4 rounded-xl border border-border/80 sf-glass text-foreground focus:border-primary focus:bg-background focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all text-[16px] md:text-lg" placeholder="john@company.com" />
+                      {errors.email && <p className="text-sm font-medium text-primary mt-2">{errors.email.message}</p>}
                     </div>
                     <div>
-                      <label className="block text-xs font-mono uppercase text-muted mb-3">Phone</label>
-                      <input {...register("phone")} className="w-full px-5 py-4 rounded-xl border border-border/80 sf-glass text-foreground focus:border-primary focus:bg-background focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all text-lg" placeholder="+1 (555) 000-0000" />
+                      <label className="block text-xs font-mono uppercase text-muted mb-3 font-bold">Phone</label>
+                      <input {...register("phone")} className="w-full min-h-[56px] px-5 py-4 rounded-xl border border-border/80 sf-glass text-foreground focus:border-primary focus:bg-background focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all text-[16px] md:text-lg" placeholder="+1 (555) 000-0000" />
                     </div>
                     <div className="md:col-span-2">
-                      <label className="block text-xs font-mono uppercase text-muted mb-3">Additional Context (Optional)</label>
-                      <textarea {...register("message")} rows={4} className="w-full px-5 py-4 rounded-xl border border-border/80 sf-glass text-foreground focus:border-primary focus:bg-background focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all resize-none text-lg" placeholder="Any specific API endpoints, target metrics, or constraints?" />
+                      <label className="block text-xs font-mono uppercase text-muted mb-3 font-bold">Additional Context (Optional)</label>
+                      <textarea {...register("message")} rows={4} className="w-full px-5 py-4 rounded-xl border border-border/80 sf-glass text-foreground focus:border-primary focus:bg-background focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all resize-none text-[16px] md:text-lg" placeholder="Any specific API endpoints, target metrics, or constraints?" />
                     </div>
                   </div>
                 </div>
@@ -422,7 +422,7 @@ export function ContactWizard() {
             ) : (
               <button
                 type="submit" disabled={!canProceed() || isSubmitting}
-                className="flex items-center gap-3 h-14 px-10 rounded-xl bg-primary text-white text-lg font-bold hover:bg-primary-hover shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] transition-all disabled:opacity-50"
+                className="flex items-center gap-3 h-14 px-10 rounded-xl bg-primary text-[#111111] dark:text-white text-lg font-bold hover:bg-primary-hover shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] transition-all disabled:opacity-50"
               >
                 {isSubmitting ? <><Loader2 className="w-5 h-5 animate-spin" /> Submitting Pipeline...</> : <><Check className="w-5 h-5" /> Request Architecture Blueprint</>}
               </button>

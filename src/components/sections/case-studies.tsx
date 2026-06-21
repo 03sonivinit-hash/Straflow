@@ -42,7 +42,7 @@ export function CaseStudies() {
           {CASE_STUDIES.map((study, i) => (
             <div
               key={i}
-              className="flex flex-col lg:flex-row gap-8 bg-surface/30 border border-border/50 rounded-[var(--sf-radius-lg)] p-8 md:p-10 hover:border-primary/30 hover:bg-surface/50 transition-colors"
+              className="flex flex-col lg:flex-row gap-8 bg-surface/30 border border-border/50 rounded-[var(--sf-radius-lg)] p-6 md:p-10 hover:border-primary/30 hover:bg-surface/50 transition-colors"
             >
               {/* Client & Context */}
               <div className="lg:w-1/3 flex flex-col">
@@ -70,7 +70,7 @@ export function CaseStudies() {
                   </Link>
                 </div>
 
-                <div className="flex flex-col gap-6 md:min-w-[140px] md:border-l border-border/50 md:pl-8 justify-center">
+                <div className="grid grid-cols-2 md:flex md:flex-col gap-6 md:min-w-[140px] md:border-l border-border/50 md:pl-8 justify-center">
                   {study.metrics.map((m, idx) => (
                     <div key={idx} className="flex flex-col">
                       <div className="text-4xl font-mono font-bold text-foreground mb-1 tracking-tighter">{m.value}</div>

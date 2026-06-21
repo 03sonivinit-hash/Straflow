@@ -48,7 +48,7 @@ export function Industries() {
           {INDUSTRIES.map((industry, i) => (
             <div
               key={i}
-              className="flex flex-col justify-between bg-surface/30 border border-border/50 rounded-[var(--sf-radius-lg)] p-8 hover:bg-surface/50 hover:border-border transition-all duration-300"
+              className="flex flex-col justify-between bg-surface/30 border border-border/50 rounded-[var(--sf-radius-lg)] p-6 md:p-8 hover:bg-surface/50 hover:border-border transition-all duration-300"
             >
               <div className="mb-8">
                 <div className="flex items-center justify-between mb-6">

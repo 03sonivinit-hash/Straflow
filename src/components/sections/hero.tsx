@@ -51,9 +51,9 @@ export function Hero() {
 
       {/* Grid overlay for structural feel */}
       <div 
-        className="absolute inset-0 z-[1] opacity-[0.03] pointer-events-none"
+        className="absolute inset-0 z-[1] opacity-[0.03] dark:opacity-[0.03] text-foreground pointer-events-none"
         style={{
-          backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)`,
           backgroundSize: '40px 40px'
         }}
       />
@@ -81,7 +81,7 @@ export function Hero() {
               className="flex items-center gap-4"
             >
               <span className={`w-24 ${currentStage === i ? 'text-foreground' : ''}`}>[{stage.id}]</span>
-              <span className="hidden md:inline-block text-muted/50">............</span>
+              <span className="hidden md:inline-block text-muted/70">............</span>
               <span className={currentStage === i ? 'text-primary' : ''}>
                 {currentStage >= i ? 'ACTIVE' : 'STANDBY'}
               </span>
@@ -90,7 +90,7 @@ export function Hero() {
         </div>
 
         {/* Main Content Reveal */}
-        <div className="w-full max-w-5xl mt-40 md:mt-20">
+        <div className="w-full max-w-5xl mt-24 md:mt-20">
           <AnimatePresence>
             {systemOnline && (
               <motion.div
@@ -113,14 +113,14 @@ export function Hero() {
                 </motion.p>
 
                 <motion.div 
-                  className="flex flex-col sm:flex-row items-center gap-4"
+                  className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6, duration: 0.5 }}
                 >
                   <Link
                     href="/contact"
-                    className="flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 bg-foreground text-background text-sm font-bold uppercase tracking-wider rounded-[var(--sf-radius-sm)] hover:bg-primary hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[var(--sf-shadow-glow)]"
+                    className="flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 bg-foreground text-background text-sm font-bold uppercase tracking-wider rounded-[var(--sf-radius-sm)] hover:bg-primary hover:text-[#111111] dark:hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[var(--sf-shadow-glow)]"
                   >
                     Book Strategy Call
                     <ArrowRight className="w-4 h-4" />

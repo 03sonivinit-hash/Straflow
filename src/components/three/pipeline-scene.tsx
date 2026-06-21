@@ -163,14 +163,14 @@ function Scene() {
 
 export function PipelineScene() {
   return (
-    <div className="absolute inset-0 z-0 bg-[#050505]">
+    <div className="absolute inset-0 z-0 bg-background dark:bg-[#050505]">
       {/* Subtle radial gradient overlay to focus center */}
-      <div className="absolute inset-0 z-10 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_#050505_80%)] pointer-events-none" />
+      <div className="absolute inset-0 z-10 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_var(--color-background)_80%)] dark:bg-[radial-gradient(ellipse_at_center,_transparent_0%,_#050505_80%)] pointer-events-none" />
       
       <Canvas
         camera={{ position: [0, 0, 8], fov: 50 }}
         dpr={[1, 2]}
-        gl={{ antialias: true, alpha: false, powerPreference: "high-performance" }}
+        gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       >
         <Scene />
       </Canvas>

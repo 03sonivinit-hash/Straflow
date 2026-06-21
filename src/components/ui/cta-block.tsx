@@ -30,12 +30,12 @@ export function CTABlock({
     <section
       ref={ref}
       className={cn(
-        "sf-section relative overflow-hidden bg-[#050505] text-white",
+        "sf-section relative overflow-hidden bg-background text-foreground",
         className
       )}
     >
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#050505] via-[#0a0a0a] to-[#2a1a14]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-surface to-surface-hover dark:from-[#050505] dark:via-[#0a0a0a] dark:to-[#2a1a14]" />
 
       {/* Pipeline flow lines */}
       <div className="absolute inset-0 overflow-hidden opacity-20">
@@ -59,8 +59,8 @@ export function CTABlock({
 
       <div className="sf-container relative z-10 text-center">
         <div data-reveal className="max-w-4xl mx-auto">
-          <h2 className="text-white text-5xl md:text-6xl tracking-tight mb-8">{title}</h2>
-          <p className="text-white/70 text-xl leading-relaxed mb-12 max-w-2xl mx-auto">
+          <h2 className="text-foreground text-5xl md:text-6xl tracking-tight mb-8">{title}</h2>
+          <p className="text-text-secondary text-xl leading-relaxed mb-12 max-w-2xl mx-auto">
             {subtitle}
           </p>
 
@@ -70,7 +70,7 @@ export function CTABlock({
               variant="primary"
               size="lg"
               id="cta-book-call"
-              className="bg-primary text-white hover:bg-primary-hover"
+              className="bg-primary text-[#111111] dark:text-white hover:bg-primary-hover"
             >
               {primaryLabel}
               <ArrowRight className="w-4 h-4" />
