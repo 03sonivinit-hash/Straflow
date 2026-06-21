@@ -61,7 +61,7 @@ export function Hero() {
       <div className="relative z-10 sf-container w-full pt-32 pb-20 flex flex-col items-start justify-center min-h-screen">
         
         {/* System Boot Sequence (Top Left) */}
-        <div className="absolute top-32 left-6 md:left-10 font-mono text-[10px] md:text-xs tracking-widest text-muted space-y-2">
+        <div className="relative mb-12 w-full md:absolute md:top-32 md:left-10 font-mono text-[10px] md:text-xs tracking-widest text-muted space-y-2">
           <div className="flex items-center gap-2 mb-6">
             <div className={`w-2 h-2 rounded-full ${systemOnline ? 'bg-primary shadow-[0_0_8px_var(--sf-primary)]' : 'bg-muted'}`} />
             <span className={systemOnline ? 'text-primary font-bold' : ''}>
@@ -90,7 +90,7 @@ export function Hero() {
         </div>
 
         {/* Main Content Reveal */}
-        <div className="w-full max-w-5xl mt-24 md:mt-20">
+        <div className="w-full max-w-5xl mt-8 md:mt-20">
           <AnimatePresence>
             {systemOnline && (
               <motion.div

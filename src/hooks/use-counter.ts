@@ -22,7 +22,7 @@ export function useCounter(options: UseCounterOptions) {
   } = options;
 
   const [value, setValue] = useState(start);
-  const [hasStarted, setHasStarted] = useState(false);
+  const hasStarted = useRef(false);
   const ref = useRef<HTMLDivElement>(null);
   const startTime = useRef<number | null>(null);
   const frameRef = useRef<number>(0);
@@ -52,8 +52,8 @@ export function useCounter(options: UseCounterOptions) {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasStarted) {
-            setHasStarted(true);
+          if (entry.isIntersecting && !hasStarted.current) {
+            hasStarted.current = true;
             frameRef.current = requestAnimationFrame(animate);
           }
         });
@@ -67,7 +67,7 @@ export function useCounter(options: UseCounterOptions) {
       observer.disconnect();
       cancelAnimationFrame(frameRef.current);
     };
-  }, [animate, hasStarted]);
+  }, [animate]);
 
   const formattedValue = `${prefix}${value.toLocaleString()}${suffix}`;
 
